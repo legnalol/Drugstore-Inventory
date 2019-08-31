@@ -1,3 +1,5 @@
+#ongoing
+
 import pymysql
 from PyQt5 import QtWidgets, QtGui, QtCore, uic
 from PyQt5.QtWidgets import *
@@ -14,7 +16,7 @@ class Ui_AddProd(QDialog):
         description = self.Descrip.text()
         price = self.Price.text()
         classification = self.Classi()
-        quantity = self.qty()
+        quantity = self.qty.value()
 
         if (idproduct == '' or product_name == '' or description == '' or price == '' or classification == '' or quantity == ''):
             QMessageBox.about(self, 'Error', "Please input the following!")
