@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>900</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Inventory System</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Resources/S.png</normaloff>Resources/S.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="WelcomeScreen">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>0</y>
+      <width>651</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt;&quot;&gt;CLAIRE'S DRUGSTORE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>50</y>
+      <width>671</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="time">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>550</y>
+      <width>261</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>80</y>
+      <width>651</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(229, 229, 229);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <property name="rowCount">
+     <number>0</number>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Product ID</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Product Name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Unit Price</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Quantity</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Classification</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-10</y>
+      <width>971</width>
+      <height>591</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Backgrounds/Background.jpg);</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>118</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>118</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>320</y>
+      <width>118</width>
+      <height>3</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <zorder>graphicsView</zorder>
+   <zorder>WelcomeScreen</zorder>
+   <zorder>line</zorder>
+   <zorder>tableWidget</zorder>
+   <zorder>time</zorder>
+   <zorder>line_2</zorder>
+   <zorder>line_3</zorder>
+   <zorder>line_4</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Product</string>
+    </property>
+    <addaction name="Add_product"/>
+    <addaction name="remove_product"/>
+    <addaction name="edit_product"/>
+    <addaction name="Search"/>
+    <addaction name="Refresh"/>
+   </widget>
+   <widget class="QMenu" name="menuCash">
+    <property name="title">
+     <string>Cash Deposits</string>
+    </property>
+    <addaction name="Member_deposits"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings_2">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionAbout"/>
+    <addaction name="actionUser"/>
+   </widget>
+   <widget class="QMenu" name="menuFile_2">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="Print"/>
+    <addaction name="Exit"/>
+   </widget>
+   <addaction name="menuFile_2"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuCash"/>
+   <addaction name="menuSettings_2"/>
+  </widget>
+  <action name="Add_product">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/user-add-icon.png</normaloff>Resources/user-add-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Product</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="edit_product">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/Male-user-edit-icon.png</normaloff>Resources/Male-user-edit-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit Product</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="remove_product">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/user-remove-icon.png</normaloff>Resources/user-remove-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delete Product</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionEdit_User">
+   <property name="text">
+    <string>Edit User</string>
+   </property>
+  </action>
+  <action name="User">
+   <property name="text">
+    <string>User</string>
+   </property>
+  </action>
+  <action name="Cooperative_Withdrawals">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/donation-512.png</normaloff>Resources/donation-512.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cooperative Expenses</string>
+   </property>
+  </action>
+  <action name="Member_deposits">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/dep.png</normaloff>Resources/dep.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sales Report</string>
+   </property>
+  </action>
+  <action name="Print">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/print.png</normaloff>Resources/print.png</iconset>
+   </property>
+   <property name="text">
+    <string>Print</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="Member_Withdrawals">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/donation-512.png</normaloff>Resources/donation-512.png</iconset>
+   </property>
+   <property name="text">
+    <string>Member Withdrawals</string>
+   </property>
+  </action>
+  <action name="Cooperative_deposits">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/dep.png</normaloff>Resources/dep.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cooperative Income</string>
+   </property>
+  </action>
+  <action name="Developer">
+   <property name="text">
+    <string>Developer</string>
+   </property>
+  </action>
+  <action name="Exit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="Editofficials">
+   <property name="text">
+    <string>Edit Officials</string>
+   </property>
+  </action>
+  <action name="Search">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/01-512.png</normaloff>Resources/01-512.png</iconset>
+   </property>
+   <property name="text">
+    <string>Search Product</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="icon">
+    <iconset>
+     <normaloff>Resources/refresh_playback_back_again_control_icon_multimedia_blue_video-512.png</normaloff>Resources/refresh_playback_back_again_control_icon_multimedia_blue_video-512.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actionUser">
+   <property name="text">
+    <string>User</string>
+   </property>
+  </action>
+  <action name="Refresh">
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="Resourcess/BG.qrc"/>
+ </resources>
+ <connections/>
+</ui>
