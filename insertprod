@@ -15,7 +15,7 @@ class Ui_AddProd(QDialog):
         product_name = self.Name.text()
         description = self.Descrip.text()
         price = self.Price.text()
-        classification = self.Classi()
+        classification = self.Classi.itemText()
         quantity = self.qty.value()
 
         if (idproduct == '' or product_name == '' or description == '' or price == '' or classification == '' or quantity == ''):
@@ -143,6 +143,8 @@ class Ui_AddProd(QDialog):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.AddMembah = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.AddMembah.setObjectName("AddMembah")
+        self.AddMembah.clicked.connect(self.insert_prod)
+        
         self.horizontalLayout.addWidget(self.AddMembah)
         self.cancel = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.cancel.setObjectName("cancel")
