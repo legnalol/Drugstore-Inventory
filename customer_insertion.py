@@ -1,0 +1,114 @@
+import pymysql
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
+
+class custom(QDialog):
+    def insertcust(self):
+        custid = self.CustIdText.text()
+        custname = self.CustFNText.text()
+        custlast = self.CustLNText.text()
+
+        try:
+            conn = pymysql.connect('localhost', 'den', 'den20', 'store')
+            cur = conn.cursor()
+            qry = "SELECT * FROM customer"
+            cur.execute(qry)
+            result = tuple(cur.fetchall())
+            list_pro = {}
+
+            for list_count in range(0, len(result)):
+                list_pro[result[list_count][0]] = result[list_count]
+
+            if(custid == '' or custname == '' or custlast == ''):
+                QMessageBox.about(self, 'Error', "Please Input")
+
+            elif(custid in list_pro and custname == list_pro[custid][1] and custlast == list_pro[custid][2]):
+                QMessageBox.about(self, 'Warning', "Already exists")
+
+            else:
+                cur.execute("INSERT INTO customer (idcustomer, customer_firstname, customer_surname) "
+                            "VALUES (\"{0}\", \"{1}\", \"{2}\")".format(custid, custname, custlast))
+                conn.commit()
+                print('DONE')
+                QMessageBox.about(self, "Yay", "Sana gumana na...")
+
+
+        except Exception as error:
+            print(error)
+
+    def closed(self):
+        Dialog.close()
+
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Add Customer")
+        Dialog.resize(400, 300)
+        self.CustIDLabel = QtWidgets.QLabel(Dialog)
+        self.CustIDLabel.setGeometry(QtCore.QRect(40, 60, 71, 16))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.CustIDLabel.setFont(font)
+        self.CustIDLabel.setObjectName("CustIDLabel")
+        self.CustFNLAbel = QtWidgets.QLabel(Dialog)
+        self.CustFNLAbel.setGeometry(QtCore.QRect(40, 120, 71, 16))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.CustFNLAbel.setFont(font)
+        self.CustFNLAbel.setObjectName("CustFNLAbel")
+        self.CustLNLabel = QtWidgets.QLabel(Dialog)
+        self.CustLNLabel.setGeometry(QtCore.QRect(40, 180, 71, 16))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.CustLNLabel.setFont(font)
+        self.CustLNLabel.setObjectName("CustLNLabel")
+        self.CustIdText = QtWidgets.QLineEdit(Dialog)
+        self.CustIdText.setGeometry(QtCore.QRect(120, 60, 113, 20))
+        self.CustIdText.setObjectName("CustIdText")
+        self.CustFNText = QtWidgets.QLineEdit(Dialog)
+        self.CustFNText.setGeometry(QtCore.QRect(120, 120, 161, 20))
+        self.CustFNText.setObjectName("CustFNText")
+        self.CustLNText = QtWidgets.QLineEdit(Dialog)
+        self.CustLNText.setGeometry(QtCore.QRect(120, 180, 161, 21))
+        self.CustLNText.setObjectName("CustLNText")
+        self.CustTitle = QtWidgets.QLabel(Dialog)
+        self.CustTitle.setGeometry(QtCore.QRect(130, 10, 151, 16))
+        font = QtGui.QFont()
+        font.setFamily("Elephant")
+        font.setPointSize(14)
+        self.CustTitle.setFont(font)
+        self.CustTitle.setObjectName("CustTitle")
+        self.custokbutton = QtWidgets.QPushButton(Dialog)
+        self.custokbutton.setGeometry(QtCore.QRect(110, 250, 75, 23))
+        self.custokbutton.setObjectName("custokbutton")
+
+        self.custokbutton.clicked.connect(self.insertcust)
+
+        self.custcancelbutton = QtWidgets.QPushButton(Dialog)
+        self.custcancelbutton.setGeometry(QtCore.QRect(210, 250, 75, 23))
+        self.custcancelbutton.setObjectName("custcancelbutton")
+
+        self.custcancelbutton.clicked.connect(self.closed)
+
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
+
+    def retranslateUi(self, Dialog):
+        _translate = QtCore.QCoreApplication.translate
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.CustIDLabel.setText(_translate("Dialog", "CustomerID"))
+        self.CustFNLAbel.setText(_translate("Dialog", "First Name"))
+        self.CustLNLabel.setText(_translate("Dialog", "Last Name"))
+        self.CustTitle.setText(_translate("Dialog", "CUSTOMERS"))
+        self.custokbutton.setText(_translate("Dialog", "OK"))
+        self.custcancelbutton.setText(_translate("Dialog", "CANCEL"))
+
+
+if __name__ == "__main__":
+    import sys
+
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = custom()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
